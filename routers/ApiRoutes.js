@@ -13,7 +13,9 @@ Route.get("/", () => {
 //ruta para registrar un nuevo libro
 Route.post("/mnt-book/store", BookController.storeBooks)
 Route.post("/mnt-book/storeRecord", BookController.storeBookRecord)
+Route.get("/mnt-book/getBooks", BookController.getAllBooks)
 
+//rutas de usuarios
 Route.post("/mnt-user/store", UserController.storeUser)
 
 

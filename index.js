@@ -8,6 +8,10 @@ const conecc = obtenerConexion()
 
 const app = express();
 
+require("dotenv").config({
+    path: "./.env"
+});
+
 //importando las rutas
 const Routes = require("./routers/ApiRoutes")
 
@@ -31,8 +35,8 @@ app.use("/api/v1", Routes)
 
 //tomando el puerto y el host
 const puerto = process.env.PORT || 8080;
-const host = process.env.HOST
+const host = process.env.HOTS
 
-app.listen(8080, () => {
-    console.log("escuchando en el puerto " + puerto)
+app.listen(puerto, host, () => {
+    console.log(`${host}:${puerto}`)
 })
