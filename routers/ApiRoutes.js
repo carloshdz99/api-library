@@ -16,6 +16,7 @@ Route.get("/", (req, res) => {
 Route.post("/mnt-book/store", BookController.storeBooks)
 Route.post("/mnt-book/storeRecord", BookController.storeBookRecord)
 Route.get("/mnt-book/getBooks", BookController.getAllBooks)
+Route.put("/mnt-book/updateBook", BookController.updateBooks)
 
 //rutas de usuarios
 Route.post("/mnt-user/store", UserController.storeUser)

@@ -7,7 +7,7 @@ const storeBooks = async (req, res) => {
     //tomando el cuerpo de la peticion
     const { title, author, published, year, stock, id_user, id_genre } = req.body
 
-    const values = [title, author, published, year, stock, 1]
+    const values = [title, author, published, year, stock, id_user]
     const db = obtenerConexion2()
 
     //query a ejecutar
@@ -144,12 +144,27 @@ const getAllBooks = async (req, response) => {
 //funcion para actualizar un libro
 const updateBooks = async (req, response) => {
     //tomando el cuerpo de la peticion
-    const { id, title, author, published, year, stock, id_genre } = req.body
+    const { id, title, author, published, year } = req.body
+
+    console.log(req.body);
+
+    try {
+        const db = obtenerConexion()
+        const query = `UPDATE mnt_book SET title = '${title}', author = '${author}', published = '${published}', year = ${year} WHERE id = '${id}' RETURNING *`
+
+        const bookUpdate = await (await db).query(query).then(result => { return result }).catch(e => { return e })
+
+        return response.status(200).json({ bookUpdate: bookUpdate.rows[0] })
+
+    } catch (e) {
+        return response.status(500).json({ e })
+    }
 }
 
 module.exports = {
     storeBooks,
     storeBookRecord,
     returnedBook,
-    getAllBooks
+    getAllBooks,
+    updateBooks
 }
