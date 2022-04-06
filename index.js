@@ -37,6 +37,6 @@ app.use("/api/v1", Routes)
 const puerto = process.env.PORT || 8080;
 const host = process.env.HOTS
 
-app.listen(puerto, host, () => {
+app.listen(puerto, () => {
     console.log(`${host}:${puerto}`)
 })
