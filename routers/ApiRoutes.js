@@ -8,8 +8,8 @@ const UserController = require("../app/controllers/UserController")
 //importando controlador de generos
 const GenreController = require("../app/controllers/GenreController")
 
-Route.get("/", () => {
-    console.log("encontro la ruta")
+Route.get("/", (req, res) => {
+    res.send("Api")
 })
 
 //ruta para registrar un nuevo libro
