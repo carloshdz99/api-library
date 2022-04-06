@@ -7,7 +7,7 @@ const storeBooks = async (req, res) => {
     //tomando el cuerpo de la peticion
     const { title, author, published, year, stock, id_user, id_genre } = req.body
 
-    const values = [title, author, published, year, stock, id_user]
+    const values = [title, author, published, year, stock, 1]
     const db = obtenerConexion2()
 
     //query a ejecutar
@@ -141,6 +141,10 @@ const getAllBooks = async (req, response) => {
     }
 }
 
+//funcion para actualizar un libro
+const updateBooks = async (req, response) => {
+    
+}
 
 module.exports = {
     storeBooks,

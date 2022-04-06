@@ -5,6 +5,8 @@ const Route = express.Router()
 const BookController = require("../app/controllers/BookController")
 //importando controlador de usuarios
 const UserController = require("../app/controllers/UserController")
+//importando controlador de generos
+const GenreController = require("../app/controllers/GenreController")
 
 Route.get("/", () => {
     console.log("encontro la ruta")
@@ -18,5 +20,7 @@ Route.get("/mnt-book/getBooks", BookController.getAllBooks)
 //rutas de usuarios
 Route.post("/mnt-user/store", UserController.storeUser)
 
+//rutas de generos
+Route.get("/mnt-genre/getGenres", GenreController.getAllGenres)
 
 module.exports = Route
