@@ -143,7 +143,8 @@ const getAllBooks = async (req, response) => {
 
 //funcion para actualizar un libro
 const updateBooks = async (req, response) => {
-    
+    //tomando el cuerpo de la peticion
+    const { id, title, author, published, year, stock, id_genre } = req.body
 }
 
 module.exports = {
