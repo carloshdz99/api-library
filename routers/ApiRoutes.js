@@ -20,6 +20,7 @@ Route.put("/mnt-book/updateBook", BookController.updateBooks)
 
 //rutas de usuarios
 Route.post("/mnt-user/store", UserController.storeUser)
+Route.get("/mnt-user/get", UserController.getAllUser)
 
 //rutas de generos
 Route.get("/mnt-genre/getGenres", GenreController.getAllGenres)

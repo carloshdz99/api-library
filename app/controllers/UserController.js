@@ -19,6 +19,22 @@ const storeUser = async (req, res) => {
     }
 }
 
+//get de usuarios
+const getAllUser = async (req, response) => {
+    const db = obtenerConexion()
+
+    //query a ejecutar
+    const query = "SELECT * FROM mnt_user";
+    try {
+        const users = await (await db).query(query).then(result => { return result }).catch(e => { return e })
+
+        return response.status(200).json({ users: users.rows })
+    } catch (e) {
+        return res.status(500).json(e)
+    }
+}
+
 module.exports = {
-    storeUser
+    storeUser,
+    getAllUser
 }
